@@ -10,11 +10,12 @@ import errorHandler from './middleware/errorHandler.js';
 
 dotenv.config();
 
+
 connectDB();
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL }));
+app.use(cors({ origin: /http:\/\/localhost:\d+/ })); 
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
@@ -31,3 +32,4 @@ app.use(errorHandler);
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT || 5000}`);
 });
+//process.env.CLIENT_URL
