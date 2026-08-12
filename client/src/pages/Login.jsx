@@ -33,9 +33,22 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 w-full max-w-md">
+        
+        {/*  LOGO ADDED HERE */}
+        <div className="flex justify-center mb-4">
+          <img 
+            src="public/Logo.png" 
+            alt="CareerLens Logo" 
+            className="w-12 h-12 object-contain rounded-xl"
+            onError={(e) => {
+              console.log('Logo failed to load. Make sure logo.png exists in public folder');
+              e.target.style.display = 'none';
+            }}
+          />
+        </div>
 
-        <h1 className="text-2xl font-semibold text-gray-800 mb-1">Welcome back</h1>
-        <p className="text-gray-400 text-sm mb-6">Log in to your job tracker</p>
+        <h1 className="text-2xl font-semibold text-gray-800 text-center mb-1">Welcome back</h1>
+        <p className="text-gray-400 text-sm text-center mb-6">Log in to your CareerLens account</p>
 
         {error && (
           <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-lg mb-4">
@@ -62,7 +75,7 @@ export default function Login() {
             <input
               type="password"
               name="password"
-              value={form.email}
+              value={form.password}
               onChange={handleChange}
               required
               className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
